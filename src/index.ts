@@ -5,9 +5,9 @@ export {
   isMapEqual,
   isSetEqual,
   isRegExpEqual
-} from './fast-dep-equal/index.js'
+} from './fast-dep-equal'
 
 export {
   TYPE,
   getType
-} from './get-type/index.js'
+} from './get-type'

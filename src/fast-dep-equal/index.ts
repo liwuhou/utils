@@ -1,4 +1,4 @@
-import { TYPE, getType } from "../index.js";
+import { TYPE, getType } from "..";
 
 
 /**

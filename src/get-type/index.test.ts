@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest'
 import { TYPE, getType } from ".";
 
-const types = Object.keys(TYPE);
+const types = Reflect.ownKeys(TYPE) as TYPE[];
 const values = [
   [],
   {},
