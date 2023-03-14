@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "vitest",
-    "build": "echo build",
+    "build": "rollup src/index.ts --config rollup.config.js",
     "docs:dev": "vitepress dev --config vitepress.config.ts",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
@@ -15,6 +16,9 @@
   "license": "ISC",
   "devDependencies": {
     "@algolia/client-search": "^4.15.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "rollup": "^3.19.1",
+    "typescript": "^4.9.5",
     "vitepress": "1.0.0-alpha.56",
     "vitest": "^0.29.2"
   }
