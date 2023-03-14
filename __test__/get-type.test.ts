@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest'
-import { TYPE, getType } from ".";
+import { TYPE, getType } from "../src/get-type";
 
 const types = Reflect.ownKeys(TYPE) as TYPE[];
 const values = [

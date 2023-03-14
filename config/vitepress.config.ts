@@ -4,8 +4,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Utils",
   description: "A tool set",
-  srcDir: 'doc',
-  outDir: 'dist',
+  srcDir: 'docs',
+  outDir: 'views',
   srcExclude: ['**/README.md', '**/TODO.md'],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -16,9 +16,9 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Getting started',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
+          { text: 'Introduce', link: '/introduce' },
           { text: 'Runtime API Examples', link: '/api-examples' }
         ]
       }

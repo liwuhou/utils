@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest'
-import { equal } from './index'
+import { equal } from '../src/fast-dep-equal/index'
 
 const emptyFn = () => { }
 const sym = Symbol('test')
