@@ -29,6 +29,6 @@ export enum TYPE {
  */
 export type GetType = (data: unknown) => TYPE
 export const getType: GetType = (data) => {
-  const dateType = Object.prototype.toString.call(data).slice(8, -1) as TYPE;
+  const dateType = Object.prototype.toString.call(data).slice(8, -1) as TYPE
   return TYPE?.[dateType] ?? TYPE.Unknown
 }

@@ -1,4 +1,4 @@
-import { TYPE, getType } from "..";
+import { TYPE, getType } from '..'
 
 
 /**
@@ -7,7 +7,7 @@ import { TYPE, getType } from "..";
  * @param {*} b any
  * @returns boolean
  */
-export function equal<T extends unknown>(a: T, b: T): boolean {
+export function equal<T>(a: T, b: T): boolean {
   if (Object.is(a, b)) return true
 
   if (a && b && typeof a === 'object' && typeof b === 'object') {
@@ -54,7 +54,6 @@ export function equal<T extends unknown>(a: T, b: T): boolean {
 export function isObjectEqual(a, b) {
   const keys = Reflect.ownKeys(a)
   const length = keys.length
-  let i
 
   if (length !== Reflect.ownKeys(b).length) return false
 
@@ -91,7 +90,7 @@ export function isArrayEqual(a, b) {
 export function isMapEqual(a, b) {
   if (a?.size !== b?.size) return false
 
-  for (let [key, value] of a.entries()) {
+  for (const [key, value] of a.entries()) {
     if (!b.has(key)) return false
     if (!equal(value, b.get(key))) return false
   }
@@ -108,7 +107,7 @@ export function isMapEqual(a, b) {
 export function isSetEqual(a, b) {
   if (a?.size !== b?.size) return false
 
-  for (let item of a.entries()) {
+  for (const item of a.entries()) {
     if (!b.has(item[0])) return false
   }
 

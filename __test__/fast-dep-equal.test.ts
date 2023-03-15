@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest'
 import { equal } from '../src/fast-dep-equal/index'
 
-const emptyFn = () => { }
+const emptyFn = () => {/***/ }
 const sym = Symbol('test')
 const today = new Date()
 const nextDay = new Date()
@@ -20,9 +20,9 @@ describe('fast-deep-equal', () => {
     expect(equal(undefined, null)).toBeFalsy()
     expect(equal(Symbol(1), Symbol(1))).toBeFalsy()
     expect(equal(sym, sym)).toBeTruthy()
-    /** @ts-ignore 在 ts 环境，a，b 两个参数如果类型不一致不会通过类型检查，这里模拟一下没有 ts checker 的情况 */
+    /** @ts-expect-error 在 ts 环境，a，b 两个参数如果类型不一致不会通过类型检查，这里模拟一下没有 ts checker 的情况 */
     expect(equal('1', 1)).toBeFalsy()
-    /** @ts-ignore 同上 */
+    /** @ts-expect-error: 同上 */
     expect(equal(BigInt(1), 1)).toBeFalsy()
     expect(equal(BigInt(1), BigInt(1))).toBeTruthy()
   })
