@@ -1,10 +1,25 @@
 {
   "name": "utils",
   "version": "1.0.0",
-  "description": "",
-  "main": "main/index.js",
+  "description": "A helper library",
+  "main": "dist/index.js",
   "type": "module",
+  "files": [
+    "dist",
+    "views"
+  ],
+  "homepage": "https://github.com/liwuhou/utils#readme",
+  "engines": {
+    "node": ">=16.18.1",
+    "npm": ">=7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liwuhou/utils"
+  },
+  "bugs": "https://github.com/liwuou/utils/issues",
   "scripts": {
+    "preinstall": "npx pm-keeper pnpm",
     "dev": "run-p docs:dev code:dev watch:config",
     "build": "run-s eslint clean code:build docs:build",
     "test": "vitest --config config/vitest.config.ts",
@@ -23,9 +38,13 @@
     "build-docs": "vitepress build",
     "copyConfig": "node scripts/syncVitepressConfig"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "util",
+    "modules",
+    "helper"
+  ],
+  "author": "hugewilliam@foxmail.com",
+  "license": "MIT",
   "devDependencies": {
     "@algolia/client-search": "^4.15.0",
     "@rollup/plugin-typescript": "^11.0.0",
@@ -35,6 +54,7 @@
     "eslint": "^8.36.0",
     "fs-extra": "^11.1.0",
     "npm-run-all": "^4.1.5",
+    "pm-keeper": "^1.1.12",
     "rimraf": "^4.4.0",
     "rollup": "^3.19.1",
     "tslib": "^2.5.0",
