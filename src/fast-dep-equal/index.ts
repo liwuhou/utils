@@ -25,7 +25,6 @@ export function equal<T>(a: T, b: T): boolean {
       return isSetEqual(a, b)
     }
 
-    // if (a.constructor === RegExp && b.constructor === RegExp) {
     if (getType(a) === TYPE.RegExp && getType(b) === TYPE.RegExp) {
       return isRegExpEqual(a, b)
     }
@@ -59,7 +58,7 @@ export function isObjectEqual(a, b) {
 
   for (const key of keys) {
     if (!Reflect.has(b, key)) return false
-    if (!equal(a[key], b[key])) return false
+    if (!equal(Reflect.get(a, key), Reflect.get(b, key))) return false
   }
 
   return true
@@ -74,8 +73,8 @@ export function isObjectEqual(a, b) {
 export function isArrayEqual(a, b) {
   if (a?.length !== b?.length) return false
 
-  for (let i = a.length; i !== 0; i--) {
-    if (equal(a[i], b[i])) return false
+  for (let i = a.length; i-- !== 0;) {
+    if (!equal(a[i], b[i])) return false
   }
 
   return true

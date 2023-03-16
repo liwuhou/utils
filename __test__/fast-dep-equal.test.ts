@@ -28,12 +28,24 @@ describe('fast-deep-equal', () => {
   })
 
   test('Complex data test', () => {
+    // example
+    const obj1 = { name: 'william', job: 'engineer' }
+    const obj2 = { ...obj1 }
+    const obj3 = { ...obj1, age: NaN }
+    const arr1 = [{ id: '123456', obj: obj1 }, obj1]
+    const arr2 = [{ id: '123456', obj: obj2 }, obj2]
+    const arr3 = [{ id: '654321', }, obj2]
+
     expect(equal(null, null)).toBeTruthy()
     expect(equal(today, nextDay)).toBeFalsy()
     expect(equal(new Error('test'), new Error(''))).toBeFalsy()
     expect(equal(new Error('test'), new Error('test'))).toBeTruthy()
     expect(equal(new Promise(emptyFn), new Promise(emptyFn))).toBeTruthy()
     expect(equal(new Promise(emptyFn), new Promise((resolve) => resolve(1)))).toBeTruthy()
+    expect(equal(obj1, obj2)).toBeTruthy()
+    expect(equal(obj1, obj3)).toBeFalsy()
+    expect(equal(arr1, arr2)).toBeTruthy()
+    expect(equal(arr1, arr3)).toBeFalsy()
   })
 
 })
